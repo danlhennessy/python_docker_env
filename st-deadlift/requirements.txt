@@ -1,4 +1,4 @@
-pandas==1.4.3
-scipy==1.9.1
-streamlit==1.22.0
-plotly.express==0.4.1
+pandas
+scipy
+streamlit
+plotly.express
