@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: st-deadlift
+spec:
+  selector:
+    matchLabels:
+      app: st-deadlift
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: st-deadlift
+    spec:
+      containers:
+      - name: st-deadlift
+        image: docker.io/danlh/st-deadlift:latest
+        ports:
+        - containerPort: 8501
