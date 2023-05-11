@@ -19,3 +19,7 @@ Kubernetes Setup:
 - Apply service config `kubectl apply -f service.yaml`
 - Check deployment `kubectl get pods -o wide` `kubectl describe deployment st-deadlift`
 - Connect to app at http://localhost:8501
+
+Helm:
+- Add a chart repository: `helm repo add bitnami https://charts.bitnami.com/bitnami`
+- ...
