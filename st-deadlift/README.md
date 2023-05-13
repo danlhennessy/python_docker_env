@@ -21,5 +21,6 @@ Kubernetes Setup:
 - Connect to app at http://localhost:8501
 
 Helm:
-- Add a chart repository: `helm repo add bitnami https://charts.bitnami.com/bitnami`
-- ...
+- Add a chart repository: `helm repo add prometheus-community https://prometheus-community.github.io/helm-charts`
+- `helm repo update`
+- 
