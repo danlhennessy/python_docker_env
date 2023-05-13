@@ -23,4 +23,9 @@ Kubernetes Setup:
 Helm:
 - Add a chart repository: `helm repo add prometheus-community https://prometheus-community.github.io/helm-charts`
 - `helm repo update`
-- 
+- Install charts `helm install [RELEASE_NAME] prometheus-community/kube-prometheus-stack` 
+- Confirm charts have been installed correctly `helm list`
+- Find Grafana port: `kubectl logs [GRAFANA POD NAME]`
+- Port forward Grafana deployment: `kubectl port-forward deployment/[GRAFANA DEPLOYMENT] [PORT]`
+- And port forward Prometheus pod: `kubectl port-forward [PROMETHEUS POD] [PORT]`
+- Access Grafana / Prometheus UIs at http://localhost:[PORT]
