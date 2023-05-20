@@ -1,22 +1,29 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata: 
-  name: order-deployment
+  name: nginx-deployment
   labels:
-    app: orderlabel
+    app: nginxlabel
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: orderlabel
+      app: nginxlabel
   template:
     metadata:
       labels:
-        app: orderlabel
+        app: nginxlabel
     spec:
       containers:
-      - name: orderlabel
+      - name: nginxlabel
         image: nginx:1.14.2
         ports:
         - containerPort: 80
+        resources:
+          limits:
+            cpu: "0.1"
+            memory: "64Mi"
+          requests:
+            cpu: "0.1"
+            memory: "64Mi"
   
