@@ -38,6 +38,7 @@ jobs:
           cluster-name: sandboxcluster
 
       - name: Run kubectl commands
+        working-directory: /nginx-test
         run: |
-          kubectl apply -f /nginx-test/deployment.yml
-          kubectl apply -f /nginx-test/service.yml
+          kubectl apply -f deployment.yml
+          kubectl apply -f service.yml
