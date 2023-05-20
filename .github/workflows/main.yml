@@ -22,9 +22,11 @@ jobs:
           terraform apply -var "client_id=${client_id}" -var "client_secret=${client_secret}"
       
       - name: Set up Kubernetes CLI
-        uses: azure/k8s-set-context@v1
+        uses: azure/aks-set-context@v1
         with:
-          kubeconfig: ${{ secrets.KUBECONFIG }}
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+          resource-group: AKSsandbox
+          cluster-name: sandboxcluster
 
       - name: Run kubectl commands
         run: |
