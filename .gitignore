@@ -1,2 +1,6 @@
 web-app/src/__pycache__/hello.cpython-311.pyc
 st-deadlift/entries.csv
+nginx-test/Terraform/.terraform/providers/registry.terraform.io/hashicorp/azurerm/3.57.0/windows_amd64/terraform-provider-azurerm_v3.57.0_x5.exe
+nginx-test/Terraform/.terraform.lock.hcl
+nginx-test/Terraform/terraform.tfstate
+nginx-test/Terraform/terraform.tfstate.backup
