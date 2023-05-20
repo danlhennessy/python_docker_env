@@ -20,4 +20,4 @@ jobs:
 
       - name: Run kubectl commands
         run: |
-          kubectl apply -f /st-deadlift/kubernetes/
+          kubectl apply -f /st-deadlift/kubernetes/ --insecure-skip-tls-verify
