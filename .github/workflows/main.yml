@@ -12,20 +12,14 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        
-      - name: Set up Terraform
-        uses: hashicorp/setup-terraform@v1
-        
-      - name: Azure CLI
-        uses: azure/CLI@v1
-        with:
-          azcliversion: 2.23.0
 
       - name: Azure Login
         uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
-          subscription-id: ${{ secrets.AZURE_SUB }}
+          
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v1
 
       - name: Terraform Apply
         env:
