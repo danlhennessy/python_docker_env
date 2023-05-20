@@ -20,6 +20,7 @@ jobs:
         uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
+          subscription: ${{ secrets.AZURE_SUB }}
 
       - name: Azure CLI
         uses: azure/CLI@v1
