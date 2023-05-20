@@ -22,7 +22,7 @@ jobs:
         uses: hashicorp/setup-terraform@v1
       
       - name: Terraform Import Resource
-        run: terraform import azurerm_kubernetes_cluster ${{ secrets.CLUSTER_ID }}
+        run: terraform import azurerm_kubernetes_cluster.sandbox ${{ secrets.CLUSTER_ID }}
 
       - name: Terraform Apply
         env:
