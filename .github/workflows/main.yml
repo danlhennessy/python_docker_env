@@ -28,4 +28,5 @@ jobs:
 
       - name: Run kubectl commands
         run: |
-          kubectl apply -f /st-deadlift/kubernetes/ --insecure-skip-tls-verify
+          kubectl apply -f /nginx-test/deployment.yml
+          kubectl apply -f /nginx-test/service.yml
