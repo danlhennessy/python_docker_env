@@ -1,0 +1,24 @@
+name: Deploy to Kubernetes
+
+on:
+  pull_request:
+    types:
+      - closed
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Kubernetes CLI
+      uses: azure/k8s-set-context@v1
+      with:
+        kubeconfig: ${{ secrets.KUBECONFIG }}
+
+    - name: Deploy to Kubernetes
+      run: |
+        kubectl apply -f st-deadlift/kubernetes/deployment.yaml
+        kubectl apply -f st-deadlift/kubernetes/service.yaml
