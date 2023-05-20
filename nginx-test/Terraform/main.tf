@@ -14,6 +14,7 @@ data "azurerm_resource_group" "existing" {
 }
 
 resource "azurerm_kubernetes_cluster" "sandbox" {
+  count               = terraform.workspace == "default" && terraform.state.show().azure_rm_kubernetes_cluster.sandboxcluster == null ? 1 : 0
   name                = "sandboxcluster"
   location            = data.azurerm_resource_group.existing.location
   resource_group_name = data.azurerm_resource_group.existing.name
