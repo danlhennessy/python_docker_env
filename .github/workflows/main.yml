@@ -12,6 +12,14 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+        
+      - name: Terraform Apply
+        env:
+          client_id: ${{ secrets.client_id }}
+          client_secret: ${{ secrets.client_secret }}
+        run: |
+          terraform init
+          terraform apply -var "client_id=${client_id}" -var "client_secret=${client_secret}"
       
       - name: Set up Kubernetes CLI
         uses: azure/k8s-set-context@v1
