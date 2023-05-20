@@ -17,9 +17,10 @@ jobs:
         env:
           client_id: ${{ secrets.client_id }}
           client_secret: ${{ secrets.client_secret }}
+        working-directory: nginx-test/Terraform
         run: |
           terraform init
-          terraform apply -var "client_id=${client_id}" -var "client_secret=${client_secret}"
+          terraform apply -var "client_id=${client_id}" -var "client_secret=${client_secret}" -auto-approve
       
       - name: Set up Kubernetes CLI
         uses: azure/aks-set-context@v1
