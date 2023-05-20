@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
+# Retest
       - name: Azure Login
         uses: azure/login@v1
         with:
