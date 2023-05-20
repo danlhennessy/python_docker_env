@@ -14,7 +14,7 @@ def titles():
     """
     Writes titles for streamlit
     """
-    st.title("Age/Strength correlation in Powerlifting")
+    st.title("Age/Strength correlation in Powerlifting.")
     st.write("Data source: http://old.openpowerlifting.org/data.html")
     st.write("Weight Class: 90kg")
     st.header(" ")
