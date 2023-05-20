@@ -3,22 +3,27 @@ name: Deploy to Kubernetes
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Set up Kubernetes CLI
-      uses: azure/k8s-set-context@v1
-      with:
-        kubeconfig: ${{ secrets.KUBECONFIG }}
+      - name: Start Docker service container
+        run: |
+          docker run -d \
+            -v /var/run/docker.sock:/var/run/docker.sock \
+            -v ${{ secrets.KUBECONFIG }}:/root/.kube/config \
+            -v ${{ github.workspace }}/st-deadlift/kubernetes:/manifests \
+            --name docker-service \
+            docker/compose:1.29.2 \
+            tail -f /dev/null
 
-    - name: Deploy to Kubernetes
-      run: |
-        kubectl apply -f st-deadlift/kubernetes/deployment.yaml
-        kubectl apply -f st-deadlift/kubernetes/service.yaml
+      - name: Run kubectl commands
+        run: |
+          docker exec docker-service kubectl apply -f /manifests/deployment.yaml
+          docker exec docker-service kubectl apply -f /manifests/service.yaml
