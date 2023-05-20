@@ -26,7 +26,7 @@ jobs:
             -v ${{ secrets.KUBECONFIG }}:/root/.kube/config \
             -v ${{ github.workspace }}/st-deadlift/kubernetes:/manifests \
             --name docker-service \
-            docker/compose:1.29.2 \
+            docker/compose:2.18.1 \
             tail -f /dev/null
 
       - name: Run kubectl commands
