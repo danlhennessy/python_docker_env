@@ -9,15 +9,14 @@ variable "client_secret" {
   description = "Service Principal secret"
 }
 
-resource "azurerm_resource_group" "sandbox" {
+resource "azurerm_resource_group" "existing" {
   name     = "AKSsandbox"
-  location = "uksouth"
 }
 
 resource "azurerm_kubernetes_cluster" "sandbox" {
   name                = "sandboxcluster"
-  location            = azurerm_resource_group.sandbox.location
-  resource_group_name = azurerm_resource_group.sandbox.name
+  location            = azurerm_resource_group.existing.location
+  resource_group_name = azurerm_resource_group.existing.name
   dns_prefix          = "sandboxcluster"
 
   default_node_pool {
