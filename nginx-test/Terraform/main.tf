@@ -9,7 +9,7 @@ variable "client_secret" {
   description = "Service Principal secret"
 }
 
-resource "azurerm_resource_group" "existing" {
+data "azurerm_resource_group" "existing" {
   name     = "AKSsandbox"
 }
 
