@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-# Removed import and using true/false for creating AKS cluster
+
       - name: Azure Login
         uses: azure/login@v1
         with:

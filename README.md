@@ -1,12 +1,12 @@
 Repo for creating and testing dockerized stateless applications
 
-Config files included for deploying to kubernetes
+Config files included for deploying to kubernetes (See Actions => Workflows for automated deployments)
 
 To run an app locally with automatic tear-down once the app exists/stops running:
 
 `docker run --rm app`
 
-To deploy to AKS:
+To deploy to AKS manually:
 
 - Create an AKS cluster
 - Connect kubectl to the cluster
