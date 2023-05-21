@@ -8,12 +8,17 @@ variable "client_id" {
 variable "client_secret" {
   description = "Service Principal secret"
 }
+variable "create_aks_cluster" {
+  type    = bool
+  default = false
+}
 
 data "azurerm_resource_group" "existing" {
   name     = "AKSsandbox"
 }
 
 resource "azurerm_kubernetes_cluster" "sandbox" {
+  count               = var.create_aks_cluster ? 1 : 0
   name                = "sandboxcluster"
   location            = data.azurerm_resource_group.existing.location
   resource_group_name = data.azurerm_resource_group.existing.name
