@@ -10,7 +10,7 @@ variable "client_secret" {
 }
 variable "create_aks_cluster" {
   type    = bool
-  default = true
+  default = false
 }
 
 data "azurerm_resource_group" "existing" {
