@@ -36,15 +36,8 @@ jobs:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
           resource-group: AKSsandbox
           cluster-name: sandboxcluster
-          
-      - name: List files in nginx-test folder
-        run: |
-          pwd
-          ls -l
-          ls -R nginx-test
 
       - name: Run kubectl commands
-        working-directory: ${{ github.workspace }}
         run: |
-          kubectl apply -f nginx-test/deployment.yml
-          kubectl apply -f nginx-test/service.yml
+          kubectl apply -f nginx-test/deployment.yaml
+          kubectl apply -f nginx-test/service.yaml
